@@ -1,4 +1,16 @@
 const Todos = require('./model/todo.js');
+const mongoose = require('mongoose');
+
+const mongoConstr='mongodb://localhost:27017/todo';
+
+mongoose.connect(mongoConstr)
+    .then(()=>{
+        console.log('資料庫連線成功')
+    })
+    .catch((error)=>{
+        console.log(error);
+    });
+
 
 function patchTodo(req, res) {
     let body = '';
@@ -12,12 +24,7 @@ function patchTodo(req, res) {
             const data = JSON.parse(body);
             const newTodo = await Todos.updateOne(
                 { _id: id },
-                {
-                    $set: {
-                        name: data.name,
-                    }
-                }
-
+                { title: data.title}
             )
             res.writeHead(200, headers);
             res.write(JSON.stringify({
