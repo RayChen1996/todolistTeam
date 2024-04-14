@@ -24,6 +24,7 @@ const requestListener = (req, res)=>{
         // deleteTodo.js
     }else if(req.url.startsWith("/todos/") && req.method=="DELETE"){
         // deleteTodo.js
+        deleteTodo(res, req);
     }else if(req.url.startsWith("/todos/") && req.method=="PATCH"){
         // patchTodo.js
     }else if(req.method == "OPTIONS"){
