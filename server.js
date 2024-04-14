@@ -1,5 +1,6 @@
 const http = require('http');
 const { v4: uuidv4 } = require('uuid');
+const patchTodo = require('./patchTodo');
 const headers = require('./headersSetting');
 
 const requestListener = (req, res)=>{
@@ -19,6 +20,7 @@ const requestListener = (req, res)=>{
         // deleteTodo.js
     }else if(req.url.startsWith("/todos/") && req.method=="PATCH"){
         // patchTodo.js
+        patchTodo(req, res);
     }else if(req.method == "OPTIONS"){
         res.writeHead(200,headers);
         res.end();
