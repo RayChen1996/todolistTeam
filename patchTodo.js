@@ -12,11 +12,7 @@ function patchTodo(req, res) {
             const data = JSON.parse(body);
             const newTodo = await Todos.updateOne(
                 { _id: id },
-                {
-                    $set: {
-                        name: data.name,
-                    }
-                }
+                {name: data.name}
 
             )
             res.writeHead(200, headers);
