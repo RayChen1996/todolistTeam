@@ -20,6 +20,6 @@ const todoSchema = new mongoose.Schema(
     }
 );
 
-const Todos = mongoose.model('todo', todoSchema)
+const Todos = mongoose.model('todo', todoSchema);
 
 module.exports = Todos;
