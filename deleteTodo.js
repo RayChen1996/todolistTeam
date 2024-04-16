@@ -4,7 +4,7 @@ const errorHandle = require("./errorHandle");
 
 const deleteTodo = async (res, req = null) => {
   if (!req) {
-    const todos = Todos.deleteMany({});
+    const todos = await Todos.deleteMany({});
     successHandle(res, todos);
   } else {
     try {

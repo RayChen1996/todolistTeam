@@ -1,6 +1,7 @@
 const http = require('http');
 const { v4: uuidv4 } = require('uuid');
 const headers = require('./headersSetting');
+const deleteTodo = require('./deleteTodo')
 
 const requestListener = (req, res)=>{
     let body = "";
@@ -14,9 +15,8 @@ const requestListener = (req, res)=>{
     }else if(req.url=="/todos" && req.method == "POST"){
         // postTodo.js
     }else if(req.url=="/todos" && req.method == "DELETE"){
-        // deleteTodo.js
+        deleteTodo(res);
     }else if(req.url.startsWith("/todos/") && req.method=="DELETE"){
-        // deleteTodo.js
         deleteTodo(res, req);
     }else if(req.url.startsWith("/todos/") && req.method=="PATCH"){
         // patchTodo.js
