@@ -2,7 +2,6 @@ const http = require('http');
 const dotenv = require('dotenv');
 const mongoose = require('mongoose');
 const headers = require('./headersSetting');
-
 const successHandle = require('./successHandle');
 const postTodo = require('./postTodo');
 const { getAllTodos } = require('./getTodo');
@@ -29,22 +28,6 @@ const requestListener = (req, res)=>{
     }else if(req.url=='/todos' && req.method == 'DELETE'){
         deleteTodo(res);
     }else if(req.url.startsWith('/todos/') && req.method=='DELETE'){
-// const deleteTodo = require('./deleteTodo')
-
-// const requestListener = (req, res)=>{
-//     let body = "";
-    
-//     req.on('data', chunk=>{
-//         body+=chunk;
-//     })
-    
-//     if(req.url=="/todos" && req.method == "GET"){
-//         // getTodo.js
-//     }else if(req.url=="/todos" && req.method == "POST"){
-//         // postTodo.js
-//     }else if(req.url=="/todos" && req.method == "DELETE"){
-//         deleteTodo(res);
-//     }else if(req.url.startsWith("/todos/") && req.method=="DELETE"){
         deleteTodo(res, req);
     }else if(req.url.startsWith('/todos/') && req.method=='PATCH'){
         patchTodo(res, req);
