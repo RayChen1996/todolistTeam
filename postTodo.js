@@ -14,7 +14,7 @@ function postTodo(req, res) {
     try {
       const _title = JSON.parse(body)?.title;
       const _newTodo = await Todos.create({
-        _title,
+        title: _title,
       });
 
       successHandle(res, _newTodo);

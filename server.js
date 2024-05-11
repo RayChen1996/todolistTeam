@@ -23,9 +23,9 @@ mongoose
 
 const requestListener = (req, res)=>{    
     if(req.url=='/todos' && req.method == 'GET'){
-        getAllTodos(res);
+        getAllTodos(req, res);
     }else if(req.url=='/todos' && req.method == 'POST'){
-        postTodo(res, req);
+        postTodo(req, res);
     }else if(req.url=='/todos' && req.method == 'DELETE'){
         deleteTodo(res);
     }else if(req.url.startsWith('/todos/') && req.method=='DELETE'){
