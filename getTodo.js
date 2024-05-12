@@ -1,4 +1,4 @@
-import Todos from "./models/todo";
+const Todos = require('./models/todo');
 const successHandle = require("./successHandle");
 const errorHandle = require("./errorHandle");
 
